@@ -5,6 +5,8 @@ pwfile=$(mktemp) || (echo failed to make tempfile ; exit 1)
 trap '{ rm "$pwfile"; }' EXIT
 
 # read Captive Portal url
+# Captive Portal (as of 10.1.x) with certificate and assuming authentication rule 0 uses this format.
+# https://HostNameOrIP:6082/php/uid.php?vsys=1&rule=0
 read -p "Enter Palo Alto Captive Portal URL: " pancaptiveportlurl
 # read username for Captive Portal Auth
 read -p "Enter Username: " panuser
