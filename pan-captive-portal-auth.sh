@@ -37,9 +37,9 @@ exec 3>&-
 
 curl -s "$pancaptiveportlurl" \
         --data-urlencode 'inputStr=' \
-        --data-urlencode 'escapeUser@'$panuser \
+        --data-urlencode 'escapeUser='$panuser \
         --data-urlencode 'preauthid=' \
-        --data-urlencode 'user@'$panuser \
+        --data-urlencode 'user='$panuser \
         --data-urlencode 'passwd@'$pwfile \
         --data-urlencode 'ok=Login' \
         --insecure | egrep -q 'User Authenticated' >& /dev/null && echo Authentication Success || echo Authentication failed
