@@ -1,11 +1,19 @@
+# This script is meant to demenstrate how to use curl 
+# via an https post to authenticate to a Palo Alto firewall
+# Captive Portal url. This is for hosts that don't access to
+# a full web browser, but need to authenticate to a Palo Alto 
+# firewall to create a user to ip mapping via the Captive Portal.
+# Note this script ignore ssl certifcate issues (--insecure).
+
 # bail if mktemp isn't working.
 pwfile=$(mktemp) || (echo failed to make tempfile ; exit 1)
-# delete temp file even on sigkill. This will prevent a tempfile from laying around with
+# delete temp file on exit. This will prevent a tempfile from laying around with
 # a password in it.
 trap '{ rm "$pwfile"; }' EXIT
 
 # read Captive Portal url
-# Captive Portal (as of 10.1.x) with certificate installed and authentication rule 0 uses this format.
+# Captive Portal (as of 10.1.x) with certificate installed and 
+# authentication rule 0 uses this format.
 # https://HostNameOrIP:6082/php/uid.php?vsys=1&rule=0
 read -p "Enter Palo Alto Captive Portal URL: " pancaptiveportlurl
 # read username for Captive Portal Auth
@@ -29,9 +37,9 @@ exec 3>&-
 
 curl -s "$pancaptiveportlurl" \
         --data-urlencode 'inputStr=' \
-        --data-urlencode 'escapeUser='$panuser \
+        --data-urlencode 'escapeUser@'$panuser \
         --data-urlencode 'preauthid=' \
-        --data-urlencode 'user='$panuser \
+        --data-urlencode 'user@'$panuser \
         --data-urlencode 'passwd@'$pwfile \
         --data-urlencode 'ok=Login' \
         --insecure | egrep -q 'User Authenticated' >& /dev/null && echo Authentication Success || echo Authentication failed
