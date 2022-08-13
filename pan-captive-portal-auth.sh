@@ -1,6 +1,6 @@
 # This script is meant to demonstrate how to use curl 
 # via an https post to authenticate to a Palo Alto firewall
-# Captive Portal url. This is for hosts that don't access to
+# Captive Portal url. This is for hosts that don't have access to
 # a full web browser, but need to authenticate to a Palo Alto 
 # firewall to create a user to ip mapping via the Captive Portal.
 # Note this script ignore ssl certifcate issues (--insecure).
