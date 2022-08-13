@@ -44,4 +44,4 @@ curl -s "$pancaptiveportlurl" \
         --data-urlencode 'user='"$panuser" \
         --data-urlencode 'passwd@'"$pwfile" \
         --data-urlencode 'ok=Login' \
-        --insecure | egrep -q 'User Authenticated' >& /dev/null && echo Authentication Success || echo Authentication failed
+        --insecure | egrep -q 'User Authenticated' >& /dev/null && echo Authentication Success || echo Authentication Failed
