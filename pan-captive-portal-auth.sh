@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # This script is meant to demonstrate how to use curl 
 # via an https post to authenticate to a Palo Alto firewall
 # Captive Portal url. This is for hosts that don't have access to
@@ -6,7 +8,7 @@
 # Note this script ignore ssl certifcate issues (--insecure).
 
 # bail if mktemp isn't working.
-pwfile=$(mktemp) || (echo failed to make tempfile ; exit 1)
+pwfile=$(mktemp) || { echo "failed to make tempfile" ; exit 1; }
 # delete temp file on exit. This will prevent a tempfile from laying around with
 # a password in it.
 trap '{ rm "$pwfile"; }' EXIT
