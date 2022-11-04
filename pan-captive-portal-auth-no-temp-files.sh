@@ -5,6 +5,9 @@
 # firewall to create a user to ip mapping via the Captive Portal.
 # Note this script ignore ssl certifcate issues (--insecure).
 
+# Note Note: This will echo the password on the screen
+# I'm looking at you grandpa AIX system I had to deal with.
+
 # read Captive Portal url
 # Captive Portal (as of 10.1.x) with certificate installed and 
 # authentication rule 0 uses this format.
