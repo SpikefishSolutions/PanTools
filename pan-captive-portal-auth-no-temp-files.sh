@@ -6,6 +6,7 @@
 # Note this script ignore ssl certifcate issues (--insecure).
 
 # Note Note: This will echo the password on the screen
+# and username/password will show up on ps output.
 # I'm looking at you grandpa AIX system I had to deal with.
 
 # read Captive Portal url
