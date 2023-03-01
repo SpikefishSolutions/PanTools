@@ -31,4 +31,4 @@ curl -s "$pancaptiveportalurl" \
         --data-urlencode 'user='"$panuser" \
         --data-urlencode 'passwd='"$pwfile" \
         --data-urlencode 'ok=Login' \
-        --insecure | egrep -q 'User Authenticated' > /dev/null 2>&1 && echo Authentication Success || echo Authentication failed
+        --insecure | egrep -q 'User Authenticated' > /dev/null 2>&1 && echo Authentication Success || echo Authentication failed or curl not installed.
